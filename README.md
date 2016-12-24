@@ -4,7 +4,10 @@ GPS Data Visualizer
 ## Summary
 
 The idea is that we want something we can use to plot GPS coordinates on a map and filter data based on our needs.
-For now it should: assign different colors to each cluster/class, and filter points based on a given time range.
+For now it should: 
+
+* Assign different colors to each cluster/class
+* Filter points based on a given time range.
 
 For Test data you'll be given a CSV file; which will be a subset of data we have in our database. 
 It'll be 2 - 4 weeks worth.
@@ -52,7 +55,32 @@ is a different story) you'll see that there's no way to read it directly from yo
 what havoc this would cause if it could! So you need to add an upload button to get data. 
 
 You're task is to get the data, and be able to read/parse it. I recommend using [Papa Parser](http://papaparse.com/) to 
-parse the CSV. That way you don't have to make you're own reader, but that's up to you. I always advocate not  
+parse the CSV. That way you don't have to make you're own reader, but that's up to you. I almost always advocate not to 
 reinvent the wheel, and be lazy (in a good way)!
 
-###: 4: 
+### 4: Plot Data from File
+
+This is a big step. This is where most of the Javascript programming will happen. 
+If I had to break this down into 2 steps I would say:
+
+#### 1: Just put points on the Map
+
+Just plot the points onto the map.
+
+#### 2: Assign Colors to Clusters
+
+Assign points colors according to their cluster/class.
+
+### 5: Add Time Range Filter Control
+
+I would imagine implementing this with a slider or two text fields that take a **begin time**, and an **end time**.
+The idea is to just plot points that are within the two time ranges (inclusively) (i.e. 1/3/2015 - 1/5/2015 should include all points within those tow days and everytnig in between).
+
+
+### More?
+
+If you manage to get this far, we have other features that would be cool additions.
+
+### Help?
+
+You can contact us, and ask questions on Github Issues; which you can populate yourself, and I'll add stuff too. 
