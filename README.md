@@ -7,7 +7,7 @@ The idea is that we want something we can use to plot GPS coordinates on a map a
 For now it should: 
 
 * Assign different colors to each cluster/class
-* Filter points based on a given time range.
+* (Optional) Filter points based on a given time range.
 
 For Test data you'll be given a CSV file; which will be a subset of data we have in our database. 
 It'll be 2 - 4 weeks worth.
@@ -71,7 +71,7 @@ Just plot the points onto the map.
 
 Assign points colors according to their cluster/class.
 
-### 5: Add Time Range Filter Control
+### 5: (Optional) Add Time Range Filter Control
 
 I would imagine implementing this with a slider or two text fields that take a **begin time**, and an **end time**.
 The idea is to just plot points that are within the two time ranges (inclusively) (i.e. 1/3/2015 - 1/5/2015 should include all points within those tow days and everytnig in between).
