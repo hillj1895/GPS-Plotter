@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPS Plotter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet" media="screen">
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+    <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <style>
+      #map-container { 
+        height: 100% 
+      }
+
+      html, body {
+        height: 100%;
+      }
+    </style>
+
+</head>
+<body>
+    <div class="col-md-3">
+    <h1>Filters Go Here</h1>
+    </div>
+    <div id="map-container" class="col-md-9"></div>
+
+    <script>
+      function init_map() {
+      var var_location = new google.maps.LatLng(43.3095,-73.6440);
+ 
+      var var_mapoptions = {
+        center: var_location,
+        zoom: 14
+      };
+ 
+      var var_marker = new google.maps.Marker({
+        position: var_location,
+        map: var_map,
+        title:"Glens Falls"
+      });
+ 
+      var var_map = new google.maps.Map(document.getElementById("map-container"),
+        var_mapoptions);
+ 
+      var_marker.setMap(var_map); 
+      }
+ 
+      google.maps.event.addDomListener(window, 'load', init_map);
+    </script>
+</body>
+</html>
