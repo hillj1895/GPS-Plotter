@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GPS Plotter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet" media="screen">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <style>
+    #map {
+      height: 100% 
+    }
+
+    html, body {
+      height: 100%;
+      background-color: lightgrey;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="col-xs-3">
+    <h1>GPS Plotter</h1>
+    <p>Upload a CSV File:</p>
+    <input type="file" id="csv-file" name="files"/>
+    <script src="Parser.js"></script>
+  </div>
+  <div id="map" class="col-xs-9">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7kbzCC9vv9yxONLqYlravPF2tBW-HTuE&callback=initMap" async defer></script>
+    <script src="MapScript.js"></script>
+  </div>
+
+</body>
+</html>
