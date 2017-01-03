@@ -1,18 +1,40 @@
 var data;
 
-function handleFileSelect(evt) {
+function handleFile(evt) 
+{
   var file = evt.target.files[0];
 
-  Papa.parse(file, {
+  Papa.parse(file, 
+  {
     header: true,
     dynamicTyping: true,
-    complete: function(results) {
+    complete: function(results) 
+    {
       data = results;
-      console.log(results);
+      console.log(results.data);
+      addMarkers(data);
     }
   });
 }
 
-$(document).ready(function(){
-  $("#csv-file").change(handleFileSelect);
+function addMarkers(data)
+{
+  for (var i = 0; i<data.data.length ; i++)
+  {
+    var lat = data.data[i].latitude;
+    var lon = data.data[i].longitude;
+    var prov = data.data[i].Provider;
+    addMarker(lat, lon, prov);
+  }
+}
+
+
+/* function showLatLang(lat, lon)
+{
+  console.log("Latitude: " + lat + ". Longitude: " + lon);
+} */
+
+$(document).ready(function()
+{
+  $("#csv-file").change(handleFile);
 });
