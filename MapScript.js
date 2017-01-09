@@ -20,7 +20,7 @@ function addMarker(lt, ln, prov)
 {
   // Troubleshooting call:
   //console.log("Latitude: " + lt + ". Longitude: " + ln);
-
+  
   var location = new google.maps.LatLng(lt, ln);
   var marker = new google.maps.Marker({
     position: location,
