@@ -4,13 +4,20 @@
   <title>GPS Plotter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/css/iThing.css" type="text/css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="jQDateRangeSlider-min.js"></script>
 
   <style>
-    #map {
+    #map-canvas {
       height: 100% 
+    }
+
+    #slider {
+      margin: 10px 35px 10px 35px
     }
 
     html, body {
@@ -21,13 +28,17 @@
 </head>
 
 <body>
-  <div class="col-xs-3">
+  <div class="col-xs-4">
     <h1>GPS Plotter</h1>
-    <p>Upload a CSV File:</p>
+    <h5>Upload a CSV File:</h5>
     <input type="file" id="csv-file" name="files"/>
     <script src="Parser.js"></script>
+    <h5 id="sliderHeading" style="margin-top:30px"></h5>
+    <div id="slider">
+      <script src="Slider.js"></script>
+    </div>
   </div>
-  <div id="map" class="col-xs-9">
+  <div id="map-canvas" class="col-xs-8">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7kbzCC9vv9yxONLqYlravPF2tBW-HTuE&callback=initMap" async defer></script>
     <script src="MapScript.js"></script>
   </div>
