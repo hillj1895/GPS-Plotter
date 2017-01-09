@@ -1,21 +1,22 @@
 var data;
 
-function handleFile(evt) 
-{
+function handleFile(evt) {
+
   var file = evt.target.files[0];
 
-  Papa.parse(file, 
-  {
+  Papa.parse(file, {
     header: true,
     dynamicTyping: true,
     complete: function(results) 
     {
       data = results;
       console.log(results.data);
+      addSlider(data);
       addMarkers(data);
     }
   });
 }
+
 
 function addMarkers(data)
 {
@@ -28,8 +29,8 @@ function addMarkers(data)
   }
 }
 
-
-/* function showLatLang(lat, lon)
+/* Troubleshooting Function 
+ function showLatLang(lat, lon)
 {
   console.log("Latitude: " + lat + ". Longitude: " + lon);
 } */
