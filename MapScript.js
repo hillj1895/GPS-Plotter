@@ -1,11 +1,9 @@
 var map;
-var myLocation = {lat: 43.3095, lng: -73.644};
-
+var myLocation = {lat: 41.8077, lng: -72.2540};
 
 function initMap() {
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 13,
     center: myLocation,
     rotateControl: true
   });
@@ -16,17 +14,16 @@ function initMap() {
     animation:google.maps.Animation.DROP,
     title: 'Hello World!'
   }); */
-
 }
 
 function addMarker(lt, ln, prov)
 {
   // Troubleshooting call:
-  console.log("Latitude: " + lt + ". Longitude: " + ln);
+  //console.log("Latitude: " + lt + ". Longitude: " + ln);
 
-  var location = {lat: lt, lng: ln};
+  var location = new google.maps.LatLng(lt, ln);
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(lt, ln),
+    position: location,
     map: map
   });
 }
