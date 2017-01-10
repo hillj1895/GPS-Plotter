@@ -3,11 +3,12 @@ var data;
 function handleFile(evt) {
 
   var file = evt.target.files[0];
+  console.log(file);
 
   Papa.parse(file, {
     header: true,
     dynamicTyping: true,
-    complete: function(results) 
+    complete: function(results)
     {
       data = results;
       console.log(results.data);
@@ -24,11 +25,13 @@ function addMarkers(data)
     var lat = data.data[i].latitude;
     var lon = data.data[i].longitude;
     var prov = data.data[i].Provider;
-    addMarker(lat, lon, prov);
+    if (lat !== undefined & lon !== undefined) {
+        addMarker(lat, lon, prov);
+    }
   }
 }
 
-/* Troubleshooting Function 
+/* Troubleshooting Function
  function showLatLang(lat, lon)
 {
   console.log("Latitude: " + lat + ". Longitude: " + lon);

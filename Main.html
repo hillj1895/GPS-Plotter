@@ -13,7 +13,7 @@
 
   <style>
     #map-canvas {
-      height: 100% 
+      height: 100%
     }
 
     #slider {
@@ -28,20 +28,24 @@
 </head>
 
 <body>
+  <!-- Control Panel -->
   <div class="col-xs-4">
     <h1>GPS Plotter</h1>
     <h5>Upload a CSV File:</h5>
     <input type="file" id="csv-file" name="files"/>
-    <script src="Parser.js"></script>
     <h5 id="sliderHeading" style="margin-top:30px"></h5>
     <div id="slider">
-      <script src="Slider.js"></script>
     </div>
   </div>
+
+  <!-- Map Area -->
   <div id="map-canvas" class="col-xs-8">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7kbzCC9vv9yxONLqYlravPF2tBW-HTuE&callback=initMap" async defer></script>
-    <script src="MapScript.js"></script>
   </div>
 
 </body>
+
+<script src="MapScript.js"></script>
+<script src="Parser.js"></script>
+<script src="Slider.js"></script>
 </html>

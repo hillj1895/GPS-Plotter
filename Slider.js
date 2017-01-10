@@ -1,18 +1,19 @@
 function addSlider(fileData) {
-	var minDate = new Date(fileData.data[0].local_time);
-	var maxDate = new Date(fileData.data[data.data.length - 1].local_time);
-
+	var minDate = new Date(parseInt(fileData.data[0].senseStartTimeMillis));
+	var maxDate = new Date(parseInt(fileData.data[data.data.length - 2].senseStartTimeMillis));
+	console.log(minDate);
+	console.log(maxDate);
 	$("#slider").dateRangeSlider({
-	  
+
 	  arrows: false,
 
 	  bounds: {
-		  min: minDate, 
+		  min: minDate,
 		  max: maxDate
 	  },
 
 	  defaultValues: {
-		  min: minDate, 
+		  min: minDate,
 		  max: maxDate
 	  }
 	});
