@@ -12,12 +12,14 @@ function handleFile(evt) {
     {
       data = results;
       console.log(results.data);
+      updateMapCenter(data);
       addSlider(data);
       addMarkers(data);
     }
   });
 }
 
+// This method is only called when the initial CSV file is uploaded
 function addMarkers(data)
 {
   for (var i = 0; i<data.data.length ; i++)
@@ -25,8 +27,9 @@ function addMarkers(data)
     var lat = data.data[i].latitude;
     var lon = data.data[i].longitude;
     var prov = data.data[i].Provider;
+    var timeMillis = data.data[i].senseStartTimeMillis;
     if (lat !== undefined & lon !== undefined) {
-        addMarker(lat, lon, prov);
+        addMarker(lat, lon, prov, timeMillis);
     }
   }
 }
