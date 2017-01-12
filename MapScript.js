@@ -51,7 +51,7 @@ function addMarker(lt, ln, prov, timeMillis) {
 function updateMarkers(timeStart, timeEnd) {
   for (var i = 0; i < markersArr.length; i++) {
     thisMarker = markersArr[i];
-    markerTime = new Date(thisMarker.timeStamp);
+    markerTime = thisMarker.timeStamp;
     if (markerTime < timeStart || markerTime > timeEnd) {
       thisMarker.setMap(null);
     }
