@@ -1,27 +1,42 @@
 function addSlider(fileData) {
-	var minDate = new Date(parseInt(fileData.data[0].senseStartTimeMillis));
-	var maxDate = new Date(parseInt(fileData.data[data.data.length - 1].senseStartTimeMillis));
+	minDateMillis = parseInt(fileData.data[0].senseStartTimeMillis);
+	maxDateMillis = parseInt(fileData.data[data.data.length - 1].senseStartTimeMillis);
+	var minDate = new Date(minDateMillis);
+	var maxDate = new Date(maxDateMillis);
 
 	$("#slider").dateRangeSlider({
-
 	  arrows: false,
-
 	  bounds: {
 		  min: minDate,
 		  max: maxDate
 	  },
-
 	  defaultValues: {
 		  min: minDate,
 		  max: maxDate
-	  }
+	  },
+    formatter:function(val){
+      var days = val.getDate();
+      var month = val.getMonth() + 1;
+      var year = val.getFullYear();
+      var hours = val.getHours();
+      var minutes = val.getMinutes();
+      var time = val.getTime();
+      return month + "/" + days + "/" + year + " " + addZero(hours) + ":" +  addZero(minutes);
+    }
 	});
+
+	function addZero(val) {
+    if (val < 10) {
+        return "0" + val;
+  	}
+  	else {
+  		return val;
+  	}
+  }
 
 	document.getElementById("sliderHeading").innerHTML = "Specify a Date Range:";
 
-	// Will call an updateMarkers() function that adds/removes points depending on their date
 	$("#slider").bind("valuesChanged", function(e, data) {
 		updateMarkers(data.values.min, data.values.max);
-	  //console.log("Values just changed. min: " + data.values.min + " max: " + data.values.max);
 	});
 }
