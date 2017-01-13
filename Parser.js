@@ -1,29 +1,23 @@
 var data;
 
 function handleFile(evt) {
-
   var file = evt.target.files[0];
-  console.log(file);
-
   Papa.parse(file, {
     header: true,
     dynamicTyping: true,
-    complete: function(results)
-    {
+    complete: function(results) {
       data = results;
       console.log(results.data);
-      updateMapCenter(data);
       addSlider(data);
+      updateMapCenter(data);
       addMarkers(data);
     }
   });
 }
 
 // This method is only called when the initial CSV file is uploaded
-function addMarkers(data)
-{
-  for (var i = 0; i<data.data.length ; i++)
-  {
+function addMarkers(data) {
+  for (var i = 0; i<data.data.length ; i++) {
     var lat = data.data[i].latitude;
     var lon = data.data[i].longitude;
     var prov = data.data[i].Provider;
@@ -33,12 +27,6 @@ function addMarkers(data)
     }
   }
 }
-
-/* Troubleshooting Function
- function showLatLang(lat, lon)
-{
-  console.log("Latitude: " + lat + ". Longitude: " + lon);
-} */
 
 $(document).ready(function()
 {
