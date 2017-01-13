@@ -3,20 +3,28 @@
 <head>
   <title>GPS Plotter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet" media="screen">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQRangeSlider/5.7.2/css/iThing.css" type="text/css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="jQDateRangeSlider-min.js"></script>
+  <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="bower_components/jqrangeslider/css/iThing.css" type="text/css" />
+  <script src="bower_components/jqrangeslider/jQDateRangeSlider-min.js"></script>
+  <script src="bower_components/papaparse/papaparse.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
 
   <style>
     #map-canvas {
-      height: 100%
+      height: 85%;
+      width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
     }
     #slider {
-      margin: 10px 35px 10px 35px
+      margin: 0px 35px 10px 35px;
+    }
+    #mainHeading {
+      margin-bottom: 30px;
+    }
+    #dropDown {
+
     }
     html, body {
       height: 100%;
@@ -27,20 +35,29 @@
 
 <body>
   <!-- Control Panel -->
-  <div class="col-xs-4">
-    <h1>GPS Plotter</h1>
-    <h5>Upload a CSV File:</h5>
-    <input type="file" id="csv-file" name="files"/>
-    <h5 id="sliderHeading" style="margin-top:30px"></h5>
-    <div id="slider">
+  <div class="row" style="width: 100%"> <!--class="col-xs-4"-->
+    <div id="mainHeading" class="col-xs-2">
+      <h4>GPS Plotter</h4>
+      <p>Upload a CSV File:</p>
+      <input type="file" id="csv-file" name="files"/>
+    </div>
+    <div class="col-xs-8">
+      <h5 id="sliderHeading"></h5>
+      <div id="slider"></div>
+    </div>
+    <div id="dropDown" class="col-xs-2">
+      <p>Dropdown goes here</p>
     </div>
   </div>
 
   <!-- Map Area -->
-  <div id="map-canvas" class="col-xs-8">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7kbzCC9vv9yxONLqYlravPF2tBW-HTuE&callback=initMap" async defer></script>
+  <div id="map-canvas" class="row"> <!--class="col-xs-8"-->
+    <div class="col-xs-1"><p>hi</p></div>
+    <div class="col-xs-8">
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7kbzCC9vv9yxONLqYlravPF2tBW-HTuE&callback=initMap" async defer></script>
+    </div>
+    <div class="col-xs-1"><p>hi</p></div>
   </div>
-
 </body>
 
 <script src="MapScript.js"></script>
