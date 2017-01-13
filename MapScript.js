@@ -11,14 +11,13 @@ function initMap() {
   });
 }
 
-function updateMapCenter(fileData)
-{
+
+function updateMapCenter(fileData) {
   var centerLat = 0;
   var centerLon = 0;
   var centerLatTotal = 0;
   var centerLonTotal = 0;
-  for(var i=0; i<fileData.data.length; i++)
-  {
+  for(var i=0; i<fileData.data.length; i++) {
     centerLatTotal += fileData.data[i].latitude;
     centerLonTotal += fileData.data[i].longitude;
   }
@@ -27,7 +26,7 @@ function updateMapCenter(fileData)
   var newCenter = {lat: centerLat, lng: centerLon};
   console.log("CenterLat: " + centerLatTotal + ". CenterLon: " + centerLonTotal);
   map.setCenter(newCenter);
-  map.setZoom(8);
+  map.setZoom(9);
 }
 
 function addMarker(lt, ln, prov, timeMillis) {
@@ -37,16 +36,15 @@ function addMarker(lt, ln, prov, timeMillis) {
     map: map
   });
   if (prov == "GPS") {
-    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+    marker.setIcon("http://maps.gstatic.com/mapfiles/markers2/measle.png");
   }
   else {
-    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+    marker.setIcon("http://maps.gstatic.com/mapfiles/markers2/measle_blue.png");
   }
   marker.provider = prov;
   marker.timeStamp = timeMillis;
   markersArr.push(marker);
 }
-
 
 function updateMarkers(timeStart, timeEnd) {
   for (var i = 0; i < markersArr.length; i++) {
