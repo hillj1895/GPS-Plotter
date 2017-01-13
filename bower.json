@@ -1,0 +1,10 @@
+{
+  "name": "my-project",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "papaparse": "^4.1.2",
+    "jquery-ui": "^1.12.1",
+    "bootstrap": "^3.3.7",
+    "jqrangeslider": "^5.7.2"
+  }
+}
