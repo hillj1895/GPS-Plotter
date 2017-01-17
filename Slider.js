@@ -1,9 +1,9 @@
 function addSlider(fileData) {
 	minDateMillis = parseInt(fileData.data[0].senseStartTimeMillis);
-	maxDateMillis = parseInt(fileData.data[data.data.length - 1].senseStartTimeMillis);
+	maxDateMillis = parseInt(fileData.data[data.data.length - 2].senseStartTimeMillis);
 	var minDate = new Date(minDateMillis);
 	var maxDate = new Date(maxDateMillis);
-	console.log(fileData.data[data.data.length - 1].senseStartTimeMillis);
+	console.log(fileData.data[data.data.length - 2].senseStartTimeMillis);
 
 	$("#slider").dateRangeSlider({
 	  arrows: false,

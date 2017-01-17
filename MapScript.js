@@ -16,7 +16,7 @@ function initMap() {
 function classify(fileData) {
   var classSet = new Set();
   classArr = [];
-  for(var i=0; i < fileData.data.length; i++) {
+  for(var i=0; i < fileData.data.length-1; i++) {
     classSet.add(fileData.data[i].class);
   }
   for (let item of classSet.values()) {
@@ -55,9 +55,18 @@ function randomizeColors() {
 function addLegend(colors) {
   document.getElementById("legend-heading").innerHTML = "Legend:" + "<br />";
   for (var i = 0; i < classArr.length; i++) {
+    // Create a container for the image and text
+    var row = document.createElement("div");
+    // Add image to container
     var img = document.createElement('img');
     img.src = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + colors[i];
-    document.getElementById("legend-content").innerHTML += img + ":" + classArr[i] + "<br />";
+    row.appendChild(img);
+    // Add text to container
+    var row_text = document.createElement('span');  // NOTE: Span allows you to add in line elements!
+    row_text.innerHTML = ": " + classArr[i] + '<br>';
+    row.appendChild(row_text);
+    // Add container to legend
+    document.getElementById("legend-content").appendChild(row);
   };
 }
 
@@ -66,12 +75,12 @@ function updateMapCenter(fileData) {
   var centerLon = 0;
   var centerLatTotal = 0;
   var centerLonTotal = 0;
-  for(var i=0; i<fileData.data.length; i++) {
+  for(var i=0; i<fileData.data.length-1; i++) {
     centerLatTotal += fileData.data[i].latitude;
     centerLonTotal += fileData.data[i].longitude;
   }
-  centerLat = centerLatTotal / (fileData.data.length);
-  centerLon = centerLonTotal / (fileData.data.length);
+  centerLat = centerLatTotal / (fileData.data.length-1);
+  centerLon = centerLonTotal / (fileData.data.length-1);
   var newCenter = {lat: centerLat, lng: centerLon};
   map.setCenter(newCenter);
   map.setZoom(10);
@@ -80,7 +89,7 @@ function updateMapCenter(fileData) {
 // This method is only called when the initial CSV file is uploaded
 function addMarkers(data) {
   markersArr = [];
-  for (var i = 0; i<data.data.length ; i++) {
+  for (var i = 0; i<data.data.length-1 ; i++) {
     var lat = data.data[i].latitude;
     var lon = data.data[i].longitude;
     var prov = data.data[i].Provider;
@@ -113,4 +122,3 @@ function updateMarkers(timeStart, timeEnd) {
     }
   }
 }
-
