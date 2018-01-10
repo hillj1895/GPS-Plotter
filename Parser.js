@@ -2,6 +2,7 @@ var data;
 
 function handleFile(evt) {
   var file = evt.target.files[0];
+  console.log(file);
   Papa.parse(file, {
     header: true,
     dynamicTyping: true,
